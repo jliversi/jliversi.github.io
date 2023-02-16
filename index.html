@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://kit.fontawesome.com/88d08e29d0.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/style.css">
+  <script src="dist/main.js" defer></script>
+  <title>jliversi</title>
+  <link rel="icon" type="image/x-icon" href="images/site_icon.png">
+</head>
+<body>
+  <button id="theme-button" class="dark"><i class="fas fa-sun"></i></button>
+  <button id="mode-button" class="terminal"></button>
+  <main id="main-window" class="desktop dark terminal-showing">
+
+    <div id="terminal" tabindex="-1">
+      <div id="terminal-container">
+        <div class="output-block"></div>
+        <div id="input-container">
+          <span class="emphasis prompt">/Users/jliversi:$</span><div id="input1" class="input"></div><span id="caret"> </span><div id="input2" class="input"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="standard-site">
+      <aside id="sidebar">
+        <button id="about-btn" class="selected">ABOUT</button>
+        <button id="skills-btn">SKILLS</button>
+        <button id="experience-btn">EXPERIENCE</button>
+        <!-- <button id="projects-btn">PROJECTS</button> -->
+        <button id="contact-btn">CONTACT</button>
+      </aside>
+      <div id="standard-container">
+        <div id="standard-content">
+
+          <!-- About -->
+          <div id="about" class="standard-section">
+              <img src="images/face.png" alt="me">
+              <h1 class="red-txt">
+                Hi!
+                My name is Joshua Ashmall-Liversidge
+              </h1>
+              <h2 class="green-txt">
+                and I make websites :)
+              </h2>
+              <p class="blue-txt">
+                I primarily use React and Rails, but others as well (see skills for full list). I love solving complex problems and implementing interesting UIs. I'm always excited to learn new languages, frameworks, and tools. 
+              </p>
+              <p class="violet-txt">
+                Outside of code, I enjoy reading sci-fi, riding my bike, and watching soccer games (YNWA🧣).
+              </p>
+          </div>
+
+          <!-- Skills -->
+          <div id="skills" class="standard-section">
+            <span class="skill-category-label red-txt">Languages</span>
+            <div>
+                <img id="javascript" class="big-icon" src="images/javascript-original.svg" alt="javascript">
+                <span class="skill-name">Javascript</span>
+            </div>
+            <div>
+                <img id="typescript" class="big-icon" src="images/typescript-original.svg" alt="typescript">
+                <span class="skill-name">Typescript</span>
+            </div>
+            <div>
+                <img id="ruby" class="big-icon" src="images/ruby-original.svg" alt="ruby">
+                <span class="skill-name">Ruby</span>
+            </div>
+            <div>
+                <img id="python" class="big-icon" src="images/python-original.svg" alt="Python">
+                <span class="skill-name">Python</span>
+            </div>
+            <div></div>
+            <span id="web-skills-label" class="skill-category-label blue-txt">Web Development</span>
+            <div>
+                <img id="react" class="small-icon" src="images/react-original.svg" alt="react">
+                <span class="skill-name">React</span>
+            </div>
+            <div>
+                <img id="node" class="small-icon" src="images/node-original.svg" alt="node">
+                <span class="skill-name">Node</span>
+            </div>
+            <div>
+                <img id="rails" class="small-icon" src="images/rails-plain.svg" alt="Rails">
+                <span class="skill-name">Rails</span>
+            </div>
+            <div>
+                <img id="sql" class="small-icon" src="images/postgresql-plain.svg" alt="sql">
+                <span class="skill-name">SQL</span>
+            </div>
+            <div>
+                <img id="redux" class="small-icon" src="images/redux-original.svg" alt="redux">
+                <span class="skill-name">Redux</span>
+            </div>
+            <div>
+                <img id="express" class="small-icon" src="images/express-original.svg" alt="express">
+                <span class="skill-name">Express</span>
+            </div>
+            <div>
+                <img id="jquery" class="small-icon" src="images/jquery-original.svg" alt="jquery">
+                <span class="skill-name">JQuery</span>
+            </div>
+            <div>
+                <img id="html5" class="small-icon" src="images/html5-original.svg" alt="html5">
+                <span class="skill-name">HTML</span>
+            </div>
+            <div>
+                <img id="css" class="small-icon" src="images/css3-original.svg" alt="css3">
+                <span class="skill-name">CSS</span>
+            </div>
+            <div>
+                <img id="sass" class="small-icon" src="images/sass-original.svg" alt="sass">
+                <span class="skill-name">Sass</span>
+            </div>
+            <span class="skill-category-label green-txt">Tools</span>
+            <div>
+                <img id="git" class="small-icon" src="images/git-original.svg" alt="git">
+                <span class="skill-name">Git</span>
+            </div>
+            <div>
+                <img id="webpack" class="small-icon" src="images/webpack-original.svg" alt="webpack">
+                <span class="skill-name">Webpack</span>
+            </div>
+            <div>
+                <img id="docker" class="small-icon" src="images/docker-original.svg" alt="docker">
+                <span class="skill-name">Docker</span>
+            </div>
+            <div>
+                <img id="bash" class="small-icon" src="images/bash-original.svg" alt="bash">
+                <span class="skill-name">Bash</span>
+            </div>
+            <!-- <div> -->
+            <!--     <img id="vim" class="small-icon" src="images/vim-original.svg" alt="vim"> -->
+            <!--     <span class="skill-name">Vim</span> -->
+            <!-- </div> -->
+          </div>
+
+          <!-- Experience -->
+          <div id="experience" class="standard-section">
+              <div>
+                  <h2>Persado</h2>
+                  <span class="title-container">
+                      <h3>Software Engineer</h3>
+                      <span>-</span>
+                      <h4>April 2021 - Sept 2022</h4>
+                  </span>
+                  <ul>
+                      <li>Worked as a member of an 8-person team to contribute to internal software used by Persado copywriters to generate language for clients.</li>
+                      <li>Used Ruby, Javascript, and SQL to implement features, bug fixes, and complete technical chores to reduce existing technical debt.</li>
+                      <li>Performed regular code reviews for team members before code was merged, testing code and providing feedback.</li>
+                  </ul>
+              </div>
+              <div>
+                  <h2>App Academy</h2>
+                  <span class="title-container">
+                      <h3>Lead Instructor</h3>
+                      <span>-</span>
+                      <h4>February 2020 - February 2021</h4>
+                  </span>
+                  <ul>
+                      <li>Managed teams of 4-6 in teaching full-stack development course to cohorts of 30-60 students, graduating over 500 students into web development jobs.</li>
+                      <li>Trained teams of software engineering instructors in technical skills and best andragogical practices.</li>
+                      <li>Led bicoastal committee in maintaining and improving 24 tests used to measure knowledge of student engineers.</li>
+                  </ul>
+                  <span class="title-container">
+                      <h3>Teaching Assistant</h3>
+                      <span>-</span>
+                      <h4>February 2019 - February 2020</h4>
+                  </span>
+                  <ul>
+                      <li>Supervised the construction of full-stack Rails + React web applications for over 80 students.</li>
+                      <li>Delivered weekly lectures on technical topics including Object Oriented Programming, Data Structures, and the Client-Server Model, as well as on specific technologies include Ruby on Rails, JavaScript, React, and Redux.</li>
+                  </ul>
+              </div>
+              <div id="resume-link" >
+                <a target="_blank" href="files/resume.pdf">
+                  Resume
+                </a>
+              </div>
+          </div>
+
+          <!-- Projects -->
+          <!-- <div id="projects" class="standard-section">Projects</div> -->
+
+          <!-- Contact -->
+          <div id="contact" class="standard-section">
+            <!-- <form name="gform" id="gform" enctype="text/plain" target="hidden_iframe" action="https://docs.google.com/forms/d/e/1FAIpQLSekGu4WQwGYPASPGmogng_tHejsObYzSFSCJ_KQXywPu5j9bA/formResponse?"> -->
+            <!-- TODO: fix form to version above -->
+            <form name="gform" id="gform" enctype="text/plain" target="hidden_iframe">
+              <label>
+                <span class="violet-txt">Name</span>
+                <input type="text" name="entry.1617700874" id="entry.1617700874">
+              </label>
+              <label>
+                <span class="violet-txt">Email</span>
+                <input type="text" name="entry.30907314" id="entry.30907314">
+              </label>
+              <label id="message-label">
+                <span class="violet-txt">Message</span>
+                <textarea name="entry.1436155975" id="entry.1436155975"></textarea>
+              </label>
+              <button type="submit">
+                <span class="violet-txt">
+                  <i class="fa-regular fa-envelope"></i>
+                </span>
+              </button>
+            </form>
+            <div id="submitted-message" class="hidden">
+              Your message has been submitted!
+              I'll get back to you as soon as I can :)
+            </div>
+            
+
+            <div id="contact-links">
+                <a class="red-txt" href="https://github.com/jliversi" target="_blank">
+                    <i class="devicon-github-original"></i>
+                    <span>Github</span>
+                </a>
+                <a class="blue-txt" href="https://www.linkedin.com/in/jliversi/" target="_blank">
+                    <i class="devicon-linkedin-plain"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a class="green-txt" href="mailto:jliversi.dev@gmail.com">
+                    <i>@</i>
+                    <span>jliversi.dev@gmail.com</span>
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+</body>

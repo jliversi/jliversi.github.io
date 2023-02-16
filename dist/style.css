@@ -1,0 +1,680 @@
+body {
+  overflow: hidden;
+  font-family: "Fira Code", monospace;
+}
+
+.resize-animation-stopper * {
+  animation: none !important;
+  transition: none !important;
+}
+
+main.desktop {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  width: fit-content;
+  transition: transform 0.6s;
+}
+main.desktop.terminal-showing {
+  transform: translate(0);
+}
+main.desktop.standard-showing {
+  transform: translate(-100vw);
+}
+main.desktop.dark #terminal {
+  background-color: #002b36;
+  color: #839496;
+}
+main.desktop.dark #terminal .emphasis {
+  color: #93a1a1;
+  font-weight: 800;
+}
+main.desktop.dark #terminal #caret {
+  animation: blinker-d 0.6s step-end infinite;
+}
+main.desktop.dark #terminal a {
+  color: #839496;
+}
+main.desktop.dark #terminal a:visited {
+  color: #839496;
+}
+main.desktop.dark #standard-site {
+  background-color: #002b36;
+  color: #839496;
+}
+main.desktop.dark #standard-site #sidebar {
+  background-color: #073642;
+}
+main.desktop.dark #standard-site #resume-link a {
+  border: 1px solid #073642;
+}
+main.desktop.dark #standard-site #gform input {
+  color: #839496;
+  background-color: #002b36;
+  border: 1px solid #073642;
+}
+main.desktop.dark #standard-site #gform input:focus {
+  background-color: #073642;
+}
+main.desktop.dark #standard-site #gform textarea {
+  color: #839496;
+  background-color: #002b36;
+  border: 1px solid #073642;
+}
+main.desktop.dark #standard-site #gform textarea:focus {
+  background-color: #073642;
+}
+main.desktop.dark #standard-site #gform button {
+  color: #839496;
+  background-color: #002b36;
+  border: 1px solid #073642;
+}
+main.desktop.dark #standard-site #gform button:focus {
+  background-color: #073642;
+}
+main.desktop.dark #standard-site #gform button:hover {
+  background-color: #073642;
+}
+main.desktop.light #terminal {
+  background-color: #fdf6e3;
+  color: #657b83;
+}
+main.desktop.light #terminal .emphasis {
+  color: #586e75;
+  font-weight: 800;
+}
+main.desktop.light #terminal #caret {
+  animation: blinker-l 0.6s step-end infinite;
+}
+main.desktop.light #terminal a {
+  color: #657b83;
+}
+main.desktop.light #terminal a:visited {
+  color: #657b83;
+}
+main.desktop.light #standard-site {
+  background-color: #fdf6e3;
+  color: #657b83;
+}
+main.desktop.light #standard-site #sidebar {
+  background-color: #eee8d5;
+}
+main.desktop.light #standard-site #resume-link a {
+  border: 1px solid #eee8d5;
+}
+main.desktop.light #standard-site #gform input {
+  color: #657b83;
+  background-color: #fdf6e3;
+  border: 1px solid #eee8d5;
+}
+main.desktop.light #standard-site #gform input:focus {
+  background-color: #eee8d5;
+}
+main.desktop.light #standard-site #gform textarea {
+  color: #657b83;
+  background-color: #fdf6e3;
+  border: 1px solid #eee8d5;
+}
+main.desktop.light #standard-site #gform textarea:focus {
+  background-color: #eee8d5;
+}
+main.desktop.light #standard-site #gform button[type=submit] {
+  color: #657b83;
+  background-color: #fdf6e3;
+  border: 1px solid #eee8d5;
+}
+main.desktop.light #standard-site #gform button[type=submit]:focus {
+  background-color: #eee8d5;
+}
+main.desktop.light #standard-site #gform button[type=submit]:hover {
+  background-color: #eee8d5;
+}
+main.desktop .green-txt {
+  color: #859900;
+}
+main.desktop .yellow-txt {
+  color: #b58900;
+}
+main.desktop .orange-txt {
+  color: #cb4b16;
+}
+main.desktop .red-txt {
+  color: #dc322f;
+}
+main.desktop .magenta-txt {
+  color: #d33682;
+}
+main.desktop .violet-txt {
+  color: #6c71c4;
+}
+main.desktop .cyan-txt {
+  color: #2aa198;
+}
+main.desktop .blue-txt {
+  color: #268bd2;
+}
+main.desktop .hidden {
+  opacity: 0 !important;
+  z-index: -10;
+}
+main.desktop .hidden * {
+  cursor: default;
+}
+main.desktop #terminal {
+  position: relative;
+  box-sizing: border-box;
+  transition: all 0.2s;
+  height: 100%;
+  width: 100vw;
+  padding: 30px 50px;
+  outline: none;
+}
+main.desktop #terminal #terminal-container {
+  min-height: calc(100vh - 60px);
+  position: fixed;
+  bottom: 30px;
+}
+main.desktop #terminal .output-block {
+  width: calc(100vw - 200px);
+  margin-bottom: 21px;
+  white-space: break-spaces;
+  min-height: 1rem;
+}
+main.desktop #terminal .output-block a {
+  font-weight: 800;
+}
+main.desktop #terminal .input-block {
+  width: calc(100vw - 200px);
+  margin-bottom: 5px;
+  white-space: break-spaces;
+  min-height: 1rem;
+}
+main.desktop #terminal #input-container {
+  width: calc(100vw - 200px);
+}
+main.desktop #terminal .prompt {
+  float: left;
+  margin-right: 5px;
+}
+main.desktop #terminal .input {
+  outline: none;
+  vertical-align: text-top;
+  display: inline;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+@keyframes blinker-d {
+  0% {
+    background-color: #839496;
+    color: #002b36;
+  }
+  50% {
+    background-color: #002b36;
+    color: #839496;
+  }
+  100% {
+    background-color: #839496;
+    color: #002b36;
+  }
+}
+@keyframes blinker-l {
+  0% {
+    background-color: #657b83;
+    color: #fdf6e3;
+  }
+  50% {
+    background-color: #fdf6e3;
+    color: #657b83;
+  }
+  100% {
+    background-color: #657b83;
+    color: #fdf6e3;
+  }
+}
+main.desktop #terminal #caret {
+  white-space: pre-wrap;
+  vertical-align: text-top;
+}
+main.desktop #standard-site {
+  transition: all 0.2s;
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+  width: 100vw;
+}
+main.desktop #standard-site #sidebar {
+  transition: all 0.2s;
+  width: 20vw;
+  height: 100%;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main.desktop #standard-site #sidebar #about-btn {
+  color: #dc322f;
+}
+main.desktop #standard-site #sidebar #skills-btn {
+  color: #859900;
+}
+main.desktop #standard-site #sidebar #experience-btn {
+  color: #268bd2;
+}
+main.desktop #standard-site #sidebar #projects-btn {
+  color: #2aa198;
+}
+main.desktop #standard-site #sidebar #contact-btn {
+  color: #6c71c4;
+}
+main.desktop #standard-site #sidebar button {
+  transition: background-color 0.5s;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+main.desktop #standard-site #sidebar button.selected {
+  font-weight: 800;
+}
+main.desktop #standard-site #sidebar button:hover {
+  font-weight: 800;
+}
+main.desktop #standard-site #standard-container #standard-content {
+  width: 80vw;
+  height: 400vh;
+  transition: transform 0.6s;
+}
+main.desktop #standard-site #standard-container #standard-content.about {
+  transform: translate(0);
+}
+main.desktop #standard-site #standard-container #standard-content.skills {
+  transform: translate(0, -100vh);
+}
+main.desktop #standard-site #standard-container #standard-content.experience {
+  transform: translate(0, -200vh);
+}
+main.desktop #standard-site #standard-container #standard-content.contact {
+  transform: translate(0, -300vh);
+}
+main.desktop #standard-site #standard-container #standard-content .standard-section {
+  min-width: 80vw;
+  height: 100vh;
+}
+main.desktop #standard-site #standard-container #standard-content #about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main.desktop #standard-site #standard-container #standard-content #about img {
+  object-fit: cover;
+  border-radius: 50%;
+  height: 30vh;
+  width: 30vh;
+}
+main.desktop #standard-site #standard-container #standard-content #about h1 {
+  text-align: center;
+  white-space: pre-line;
+  font-size: 5.5vh;
+  padding: 0 3vw;
+  margin-bottom: 10px;
+}
+main.desktop #standard-site #standard-container #standard-content #about h2 {
+  font-size: 3.5vh;
+}
+main.desktop #standard-site #standard-container #standard-content #about p {
+  padding: 0 10vw;
+  margin-top: 5vh;
+  text-align: justify;
+  font-size: 2.5vh;
+}
+main.desktop #standard-site #standard-container #standard-content #skills {
+  box-sizing: border-box;
+  padding: 50px;
+  display: grid;
+  grid-template-rows: 4fr 2fr 2fr 2fr;
+  grid-template-columns: 5vw repeat(5, 1fr);
+  align-items: center;
+  gap: 50px;
+  overflow: hidden;
+}
+main.desktop #standard-site #standard-container #standard-content #skills .skill-name {
+  display: block;
+}
+main.desktop #standard-site #standard-container #standard-content #skills > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main.desktop #standard-site #standard-container #standard-content #skills img.big-icon {
+  width: min(15vw - 70px, 40vh - 120px);
+}
+main.desktop #standard-site #standard-container #standard-content #skills img.small-icon {
+  width: min(15vw - 70px, 20vh - 70px);
+}
+main.desktop #standard-site #standard-container #standard-content #skills .skill-category-label {
+  font-size: min(2vw, 4vh);
+  writing-mode: vertical-rl;
+  text-align: center;
+  transform: rotate(335deg);
+}
+main.desktop #standard-site #standard-container #standard-content #skills .skill-name {
+  display: block;
+  text-align: center;
+  margin-top: 5px;
+}
+main.desktop #standard-site #standard-container #standard-content #skills #web-skills-label {
+  grid-area: 2/1/4/2;
+}
+main.desktop #standard-site #standard-container #standard-content #experience {
+  box-sizing: border-box;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+main.desktop #standard-site #standard-container #standard-content #experience > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+main.desktop #standard-site #standard-container #standard-content #experience > div > span {
+  margin-bottom: 10px;
+}
+main.desktop #standard-site #standard-container #standard-content #experience h2 {
+  color: #dc322f;
+  font-size: 4vh;
+  margin-bottom: 10px;
+}
+main.desktop #standard-site #standard-container #standard-content #experience h3 {
+  color: #268bd2;
+  font-size: 3vh;
+  display: inline;
+  margin-left: 5vh;
+}
+main.desktop #standard-site #standard-container #standard-content #experience h4 {
+  color: #859900;
+  font-size: 2vh;
+  line-height: 3vh;
+  vertical-align: bottom;
+  display: inline;
+}
+main.desktop #standard-site #standard-container #standard-content #experience span {
+  color: #6c71c4;
+  font-size: 3vh;
+}
+main.desktop #standard-site #standard-container #standard-content #experience ul {
+  margin-bottom: 10px;
+}
+main.desktop #standard-site #standard-container #standard-content #experience li {
+  font-size: 2.2vh;
+  list-style: circle;
+  margin-bottom: 5px;
+}
+main.desktop #standard-site #standard-container #standard-content #experience #resume-link {
+  align-items: center;
+}
+main.desktop #standard-site #standard-container #standard-content #experience #resume-link a {
+  width: 20vh;
+  transition: border 0.2s;
+  font-size: 4vh;
+  padding: 5px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #6c71c4;
+  text-align: center;
+}
+main.desktop #standard-site #standard-container #standard-content #projects {
+  background-color: #859900;
+}
+main.desktop #standard-site #standard-container #standard-content #contact {
+  padding: 50px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+main.desktop #standard-site #standard-container #standard-content #contact #gform {
+  height: calc(60vh - 50px);
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 50px;
+  transition: opacity 0.3s;
+}
+main.desktop #standard-site #standard-container #standard-content #contact #gform label {
+  height: 100%;
+  width: 100%;
+}
+main.desktop #standard-site #standard-container #standard-content #contact #gform label span {
+  display: block;
+  margin-bottom: 5px;
+}
+main.desktop #standard-site #standard-container #standard-content #contact #gform label input {
+  font-size: 2.5vh;
+  height: 5vh;
+  width: 100%;
+  font-family: "Fira Code";
+  padding: 2vh 1vh;
+  box-sizing: border-box;
+  border-radius: 5px;
+  transition: background-color 0.2s, border 0.2s;
+}
+main.desktop #standard-site #standard-container #standard-content #contact #gform label input:focus {
+  outline: none;
+}
+main.desktop #standard-site #standard-container #standard-content #contact #gform label textarea {
+  height: 100%;
+  width: 100%;
+  resize: none;
+  padding: 0;
+  margin: 0;
+  font-size: 2vh;
+  font-family: "Fira Code";
+  padding: 20px;
+  box-sizing: border-box;
+  transition: background-color 0.2s, border 0.2s;
+}
+main.desktop #standard-site #standard-container #standard-content #contact #gform label textarea:focus {
+  outline: none;
+}
+main.desktop #standard-site #standard-container #standard-content #contact #gform #message-label {
+  grid-area: 2/1/3/3;
+}
+main.desktop #standard-site #standard-container #standard-content #contact #gform button[type=submit] {
+  font-family: "Font Awesome 5 Free";
+  grid-area: 3/2/4/3;
+  height: 100%;
+  width: 60%;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 5px;
+  place-self: end;
+  cursor: pointer;
+  transition: background-color 0.2s, border 0.2s;
+}
+main.desktop #standard-site #standard-container #standard-content #contact #gform button[type=submit] span {
+  font-size: 4vh;
+  display: block;
+  transition: font-size 0.2s;
+}
+main.desktop #standard-site #standard-container #standard-content #contact #gform button[type=submit]:hover span {
+  font-size: 5vh;
+}
+main.desktop #standard-site #standard-container #standard-content #contact #gform button[type=submit]:focus {
+  outline: none;
+}
+main.desktop #standard-site #standard-container #standard-content #contact #gform button[type=submit]:focus span {
+  font-size: 5vh;
+}
+main.desktop #standard-site #standard-container #standard-content #contact #submitted-message {
+  position: absolute;
+  top: calc(10vh + 50px);
+  font-size: 5vh;
+  width: calc(80vw - 100px);
+  transition: opacity 1s;
+}
+main.desktop #standard-site #standard-container #standard-content #contact #contact-links {
+  height: calc(30vh - 50px);
+  width: calc(100% - 30px);
+  display: flex;
+  justify-content: space-around;
+}
+main.desktop #standard-site #standard-container #standard-content #contact #contact-links a {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+}
+main.desktop #standard-site #standard-container #standard-content #contact #contact-links a i {
+  font-size: min(15vw - 70px, 40vh - 120px);
+}
+main.desktop #standard-site #standard-container #standard-content #contact #contact-links a span {
+  display: block;
+}
+main.desktop #standard-site #standard-container #standard-content #contact #contact-links a:visited.red-txt {
+  color: #dc322f;
+}
+main.desktop #standard-site #standard-container #standard-content #contact #contact-links a:visited.blue-txt {
+  color: #268bd2;
+}
+main.desktop #standard-site #standard-container #standard-content #contact #contact-links a:visited.green-txt {
+  color: #859900;
+}
+
+@keyframes mode-button-move-left {
+  0% {
+    background-image: url("../images/site_icon.png");
+    transform: scale(1) rotate(-5deg);
+    right: 50px;
+  }
+  49% {
+    background-image: url("../images/site_icon.png");
+    transform: scale(0) rotate(-365deg);
+    left: auto;
+    right: 50px;
+  }
+  51% {
+    background-image: url("../images/terminal_icon.png");
+    transform: scale(0);
+    left: 50px;
+    right: auto;
+  }
+  100% {
+    background-image: url("../images/terminal_icon.png");
+    left: 50px;
+  }
+}
+@keyframes mode-button-move-right {
+  0% {
+    background-image: url("../images/terminal_icon.png");
+    transform: scale(1) rotate(5deg);
+    left: 50px;
+  }
+  49% {
+    background-image: url("../images/terminal_icon.png");
+    transform: scale(0) rotate(365deg);
+    left: 50px;
+    right: auto;
+  }
+  51% {
+    background-image: url("../images/site_icon.png");
+    transform: scale(0);
+    right: 50px;
+    left: auto;
+  }
+  100% {
+    background-image: url("../images/site_icon.png");
+    right: 50px;
+  }
+}
+#mode-button {
+  z-index: 1000;
+  height: 50px;
+  width: 50px;
+  position: fixed;
+  top: 30px;
+  background-size: 50px 50px;
+  cursor: pointer;
+  transition: transform 0.6s;
+}
+#mode-button.terminal {
+  right: 50px;
+  background-image: url("../images/site_icon.png");
+}
+#mode-button.terminal:hover {
+  transform: rotate(-10deg);
+}
+#mode-button.terminal:hover + main {
+  transform: translate(-5vw);
+}
+#mode-button.terminal-to-standard {
+  animation-name: mode-button-move-left;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+}
+#mode-button.standard-to-terminal {
+  animation-name: mode-button-move-right;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+}
+#mode-button.standard {
+  left: 50px;
+  background-image: url("../images/terminal_icon.png");
+}
+#mode-button.standard:hover {
+  transform: rotate(10deg);
+}
+#mode-button.standard:hover + main {
+  transform: translate(-95vw);
+}
+
+@keyframes rotate-away {
+  0% {
+    transform: rotate3d(0, 1, 0, 0);
+  }
+  100% {
+    transform: rotate3d(0, 1, 0, 90deg);
+  }
+}
+@keyframes rotate-in {
+  0% {
+    transform: rotate3d(0, 1, 0, 90deg);
+  }
+  100% {
+    transform: rotate3d(0, 1, 0, 0);
+  }
+}
+#theme-button {
+  cursor: pointer;
+  z-index: 1000;
+  height: 30px;
+  width: 30px;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  font-family: "Font Awesome 5 Free";
+  font-size: 30px;
+}
+#theme-button.light .fa-sun {
+  animation-name: rotate-away;
+  animation-duration: 0.2s;
+}
+#theme-button.light .fa-moon {
+  animation-name: rotate-in;
+  animation-duration: 0.2s;
+}
+#theme-button.dark .fa-moon {
+  animation-duration: 0.2s;
+  animation-name: rotate-away;
+}
+#theme-button.dark .fa-sun {
+  animation-name: rotate-in;
+  animation-duration: 0.2s;
+}
+
+/*# sourceMappingURL=style.css.map */
