@@ -1,0 +1,114 @@
+@use 'colors';
+
+main.desktop {
+    // Theme differences
+	&.dark {
+
+		.mode-button {
+			color: colors.$d-text1;
+		}
+		#to-standard-button {
+			border: 1px solid colors.$d-bg2;
+		}
+		#to-terminal-button {
+			border: 1px solid colors.$d-bg;
+		}
+		.emphasis {
+			color: colors.$d-text2;
+			font-weight: 800;
+		}
+
+		#terminal {
+			background-color: colors.$d-bg;
+			color: colors.$d-text1;
+
+
+			#caret  {
+				animation: blinker-d .6s step-end infinite;
+			}
+
+			a {
+				color: colors.$d-text1;
+				&:visited {
+					color: colors.$d-text1;
+				} 
+			}
+		}
+
+		#standard-site {
+			background-color: colors.$d-bg;
+			color: colors.$d-text1;
+
+			#sidebar {
+				background-color: colors.$d-bg2;
+			}
+
+			#resume-link {
+				a {
+					&:hover {
+						background-color: colors.$d-bg2;
+					}
+					border: 1px solid colors.$d-bg2;
+					color: colors.$d-text1;
+				}
+			}
+		}
+	}
+
+	&.light {
+		#contact-links {
+			a {
+				color: colors.$l-text1;
+				&:visited {
+					color: colors.$l-text1;
+				}
+			}
+		}
+
+		.mode-button {
+			color: colors.$l-text1;
+			border: 1px solid colors.$l-text1;
+		}
+		.emphasis {
+			color: colors.$l-text2;
+			font-weight: 800;
+		}
+
+		#terminal {
+			background-color: colors.$l-bg;
+			color: colors.$l-text1;
+
+
+			#caret  {
+				animation: blinker-l .6s step-end infinite;
+			}
+
+			a {
+				color: colors.$l-text1;
+				&:visited {
+					color: colors.$l-text1;
+				} 
+			}
+		}
+
+		#standard-site {
+			background-color: colors.$l-bg;
+			color: colors.$l-text1;
+
+			#sidebar {
+				background-color: colors.$l-bg2;
+			}
+
+			#resume-link {
+				a {
+					&:hover {
+						background-color: colors.$l-bg2;
+					}
+					border: 1px solid colors.$l-bg2;
+					color: colors.$l-text1;
+				}
+			}
+		}
+	}
+}
+

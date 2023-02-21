@@ -1,5 +1,5 @@
-import { scrollSections, selectSection, submitContactForm, toggleMode, toggleTheme, typeChar } from "./listener_callbacks";
-import { getAboutBtn, getContactBtn, getContactForm, getExperienceBtn, getModeButton, getProjectsBtn, getSkillsBtn, getStandardContainer, getTerminal, getThemeButton } from "./selectors";
+import { scrollSections, selectSection, toggleModeToStandard, toggleModeToTerminal, toggleTheme, typeChar } from "./listener_callbacks";
+import { getAboutBtn, getExperienceBtn, getToStandardButton, getToTerminalButton, getProjectsBtn, getSkillsBtn, getStandardContent, getTerminal, getThemeButton } from "./selectors";
 import { setupWelcomeMessage } from "./ui";
 
 // TODO check if on mobile and in that case only go to non-terminal site
@@ -12,10 +12,11 @@ const settings = {
     // terminal settings
     inputText: "",
     cursorIdx: 0,
-    dir: "/Users/jliversi",
+    commandHistory: [""],
+    commandIdx: 0,
+    // dir: "/Users/jliversi",
     // standard site settings
     selected: "about",
-    contactSubmitted: false,
 }
 
 // Run setup functions
@@ -33,8 +34,10 @@ window.addEventListener("resize", () => {
 });
 
 // General
-const modeButton = getModeButton();
-modeButton.addEventListener("click", toggleMode(settings));
+const modeButton1 = getToStandardButton();
+modeButton1.addEventListener("click", toggleModeToStandard(settings));
+const modeButton2 = getToTerminalButton();
+modeButton2.addEventListener("click", toggleModeToTerminal(settings));
 
 const themeButton = getThemeButton();
 themeButton.addEventListener("click", toggleTheme(settings));
@@ -52,19 +55,10 @@ const experienceBtn = getExperienceBtn();
 experienceBtn.addEventListener("click", selectSection(settings,"experience"));
 // const projectsBtn = getProjectsBtn(); // TODO
 // projectsBtn.addEventListener("click", selectSection(settings,"projects")); // TODO
-const contactBtn = getContactBtn();
-contactBtn.addEventListener("click", selectSection(settings,"contact"));
 
 // Scroll in standard
-const standardContainer = getStandardContainer();
+const standardContainer = getStandardContent();
 standardContainer.addEventListener("wheel", scrollSections(settings));
-
-// Submit for contact form
-const contactForm = getContactForm();
-contactForm.addEventListener("submit", submitContactForm(settings));
 
 // Focus terminal to allow user to type
 terminalContainer.focus();
-
-// TODO: REMOVE THIS 
-window.josh = settings;

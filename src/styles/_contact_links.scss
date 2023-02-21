@@ -1,0 +1,102 @@
+@use 'colors';
+
+#contact-links {
+    width: 30px;
+    position: fixed;
+    right: 50px;
+    bottom: 95px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 120px;
+    i {
+        font-size: 30px;
+        z-index: 1001;
+    }
+    span {
+        font-size: 15px;
+        position: relative;
+        height: 30px;
+        margin: 15px 10px 0 10px;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    transition: transform 0.6s, padding 0.6s;
+
+    &.standard {
+        transform: translateX(calc(-100vw + 130px));
+        a {
+            flex-direction: row-reverse;
+            width: 145px;
+            &:last-child {
+                i {
+                    padding-left: 5px; 
+                }
+            }
+        }
+	}
+
+    &.standard-to-terminal {
+
+        a {
+            flex-direction: row-reverse;
+            &:last-child {
+                i {
+                    padding-left: 6px; 
+                }
+            }
+        }
+    }
+
+	&.terminal {
+        align-items: flex-end;
+
+        a {
+            flex-direction: row;
+            &:last-child {
+                i {
+                    padding-right: 5px; 
+                }
+            }
+        }
+	}
+
+    a {
+        height: 30px;
+        width: 30px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        text-decoration: none;
+        overflow-x: hidden;
+
+        transition: width 0.4s;
+        &#gm-link {
+            span {
+                margin: 0 10px;
+                text-align: center;
+                white-space: pre-line;
+            }
+        }
+
+        &:hover {
+            width: 145px;
+        }
+    }
+
+
+
+    &.light {
+		a {
+            color: colors.$l-text1;
+        }
+	}
+	&.dark {
+		a {
+            color: colors.$d-text1;
+        }
+	}
+}

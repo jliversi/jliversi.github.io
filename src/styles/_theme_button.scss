@@ -1,0 +1,65 @@
+@use 'colors';
+
+// Styles/animations for theme button in bottom right
+@keyframes rotate-away {
+	0%   {transform: rotate3d(0, 1, 0, 0);}
+	100%  {transform: rotate3d(0, 1, 0, 90deg);}
+}
+@keyframes rotate-in {
+	0%  {transform: rotate3d(0, 1, 0, 90deg);}
+	100%   {transform: rotate3d(0, 1, 0, 0);}
+}
+
+#theme-button {
+	cursor: pointer;
+
+	z-index: 1000;
+	
+	height: 30px;
+	width: 30px;
+	
+	position: fixed;
+	bottom: 50px;
+
+	font-family: "Font Awesome 6 Free";
+	font-size: 30px;
+
+	transition: transform 0.2s, right 0.6s;
+
+	&:hover {
+		transform: scale(1.2);
+	}
+
+	&.light {
+		.fa-sun {
+			color: colors.$yellow;
+			animation-name: rotate-away;
+			animation-duration: 0.2s;
+		}
+		.fa-moon {
+			color: colors.$violet;
+			animation-name: rotate-in;
+			animation-duration: 0.2s;
+		}
+	}
+	&.dark {
+		.fa-moon {
+			color: colors.$violet;
+			animation-duration: 0.2s;
+			animation-name: rotate-away;
+		}
+		.fa-sun {
+			color: colors.$yellow;
+			animation-name: rotate-in;
+			animation-duration: 0.2s;
+		}
+	}
+
+	&.standard {
+		right: calc(100vw - 80px);
+	}
+	&.terminal {
+		right: 50px;
+	}
+	text-align: end;
+}

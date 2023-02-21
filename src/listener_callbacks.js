@@ -1,6 +1,22 @@
 import { typableCharacters } from "./constants";
-import { getAboutBtn, getCaret, getContactBtn, getInput1, getInput2, getMain, getModeButton, getProjectsBtn, getExperienceBtn, getSectionButtons, getSkillsBtn, getStandardContent, getTerminal, getThemeButton, getContactForm, getSubmittedMessage, getNameInput } from "./selectors";
-import { buildRunCommand, cursorLeft, cursorRight, deleteChar, insertChar } from "./terminal_logic";
+import { getAboutBtn,
+    getCaret,
+    getInput1,
+    getInput2,
+    getMain,
+    getToStandardButton,
+    getToTerminalButton,
+    getProjectsBtn,
+    getExperienceBtn,
+    getSectionButtons,
+    getSkillsBtn,
+    getStandardContent,
+    getTerminal,
+    getThemeButton,
+    getContactLinks
+} from "./selectors";
+
+import { buildRunCommand, cursorLeft, cursorRight, deleteChar, insertChar, prevCommand, nextCommand } from "./terminal_logic";
 import { renderInput, tradeClasses } from "./ui";
 
 export function typeChar(settings) {
@@ -26,9 +42,12 @@ export function typeChar(settings) {
             cursorRight(settings);
             renderInput(inputEle1, inputEle2, caretEle, settings);
         } else if (e.key === "ArrowUp") {
+            prevCommand(settings);
+            renderInput(inputEle1, inputEle2, caretEle, settings);
         } else if (e.key === "ArrowDown") {
+            nextCommand(settings);
+            renderInput(inputEle1, inputEle2, caretEle, settings);
         } else if (e.key === "Enter") {
-            // runCommand
             runCommand();
         } else if (e.key === "Tab") {
             e.preventDefault();
@@ -36,35 +55,50 @@ export function typeChar(settings) {
     }
 }
 
-export function toggleMode(settings) {
-    const button = getModeButton();
+export function toggleModeToTerminal(settings) {
     const main = getMain();
     const terminal = getTerminal();
+
+    const linkContainer = getContactLinks();
+    const themeButton = getThemeButton();
 
     return function() {
         if (settings.animating) return;
         settings.animating = true;
-        if (settings.mode === "terminal") {
-            document.activeElement.blur();
-            tradeClasses(main, "terminal-showing", "standard-showing");
-            tradeClasses(button, "terminal", "terminal-to-standard");
-            
-            setTimeout(() => {
-                tradeClasses(button, "terminal-to-standard", "standard");
-                settings.mode = "standard";
-                settings.animating = false;
-            },  1010);
-        } else {
-            terminal.focus();
-            tradeClasses(main, "standard-showing", "terminal-showing");
+        terminal.focus();
+        tradeClasses(main, "standard-showing", "terminal-showing");
 
-            tradeClasses(button, "standard", "standard-to-terminal");
-            setTimeout(() => {
-                tradeClasses(button, "standard-to-terminal", "terminal");
-                settings.mode = "terminal";
-                settings.animating = false;
-            },  1010);
-        }
+        tradeClasses(linkContainer, "standard", "standard-to-terminal");
+        tradeClasses(themeButton, "standard", "terminal");
+        
+        setTimeout(() => {
+            tradeClasses(linkContainer, "standard-to-terminal", "terminal");
+            settings.mode = "terminal";
+            settings.animating = false;
+        },  600);
+    }
+}
+
+export function toggleModeToStandard(settings) {
+    const button = getToStandardButton();
+    const main = getMain();
+
+    const linkContainer = getContactLinks();
+    const themeButton = getThemeButton();
+
+    return function() {
+        if (settings.animating) return;
+        settings.animating = true;
+        document.activeElement.blur();
+        tradeClasses(main, "terminal-showing", "standard-showing");
+
+        tradeClasses(linkContainer, "terminal", "standard");
+        tradeClasses(themeButton, "terminal", "standard");
+        
+        setTimeout(() => {
+            settings.mode = "standard";
+            settings.animating = false;
+        },  600);
     }
 }
 
@@ -73,6 +107,7 @@ export function toggleTheme(settings) {
     const icon = button.children[0];
     const main = getMain();
     const terminal = getTerminal();
+    const contactLinks = getContactLinks();
 
     return function() {
         if (settings.animating) return;
@@ -80,6 +115,7 @@ export function toggleTheme(settings) {
         if (settings.theme === "dark") {
             tradeClasses(main, "dark", "light");
             tradeClasses(button, "dark", "light");
+            tradeClasses(contactLinks, "dark", "light");
             
             settings.theme = "light";
             setTimeout(() => {
@@ -89,7 +125,7 @@ export function toggleTheme(settings) {
         } else {
             tradeClasses(main, "light", "dark");
             tradeClasses(button, "light", "dark");
-            tradeClasses(button, "light", "dark");
+            tradeClasses(contactLinks, "light", "dark");
 
             settings.theme = "dark";
             setTimeout(() => {
@@ -113,8 +149,6 @@ function findBtn(section) {
             return getExperienceBtn();
         case "projects":
             return getProjectsBtn();
-        case "contact":
-            return getContactBtn();
         default:
             throw "unknown section: " + section;
     }
@@ -124,7 +158,6 @@ export function selectSection(settings, section) {
     const btn = findBtn(section);
     const allButtons = getSectionButtons();
     const contentBox = getStandardContent();
-    const nameInput = getNameInput();
 
     return function() {
         if (settings.animating) return;
@@ -135,22 +168,14 @@ export function selectSection(settings, section) {
         btn.classList.add("selected");
         settings.selected = section;
         settings.animating = false;
-        if (section === 'contact') {
-            setTimeout(() => {
-                nameInput.focus();
-            }, 700);
-        } else {
-            document.activeElement.blur();
-        }
     }
 }
 
 export function scrollSections(settings) {
-    // const sections = ["about", "skills", "experience", "projects", "contact"];
-    const sections = ["about", "skills", "experience", "contact"];
+    // const sections = ["about", "skills", "experience", "projects"];
+    const sections = ["about", "skills", "experience"];
     const allButtons = getSectionButtons();
     const contentBox = getStandardContent();
-    const nameInput = getNameInput();
 
     let scrolling = false;
     let timeoutId = null;
@@ -181,14 +206,6 @@ export function scrollSections(settings) {
         allButtons.forEach((btn) => btn.classList.remove("selected"));
         btn.classList.add("selected");
 
-        if (nextSection === 'contact') {
-            setTimeout(() => {
-                nameInput.focus();
-            }, 700);
-        } else {
-            document.activeElement.blur();
-        }
-
         settings.selected = nextSection;
         
         timeoutId = setTimeout(() => {
@@ -196,16 +213,4 @@ export function scrollSections(settings) {
             timeoutId = null;
         }, 30);
     }
-}
-
-export function submitContactForm(settings) {
-
-    const form = getContactForm();
-    const submittedMessage = getSubmittedMessage();
-    return function() {
-    if (settings.contactSubmitted) return;
-        settings.contactSubmitted = true;
-        form.classList.add("hidden");
-        submittedMessage.classList.remove("hidden");
-    };
 }

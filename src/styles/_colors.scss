@@ -1,0 +1,49 @@
+// Light theme
+$l-bg: #fdf6e3; // Background
+$l-bg2: #eee8d5;
+$l-text1: #657b83; // Text main
+$l-text2: #586e75; // Text emphasis
+$l-text3: #93a1a1; // Text de-emphasis (comments)
+
+// Dark theme 
+$d-bg: #002b36; // Background
+$d-bg2: #073642;
+$d-text1: #839496; // Text main
+$d-text2: #93a1a1; // Text emphasis
+$d-text3: #586e75; // Text de-emphasis (comments)
+
+// Colors
+$yellow:  #b58900;
+$orange:  #cb4b16;
+$red:     #dc322f;
+$magenta: #d33682;
+$violet:  #6c71c4;
+$blue:    #268bd2;
+$cyan:    #2aa198;
+$green:   #859900;
+
+// Text colors
+.green-txt {
+    color: $green !important;
+}
+.yellow-txt {
+    color: $yellow !important;
+}
+.orange-txt {
+    color: $orange !important;
+}
+.red-txt {
+    color: $red !important;
+}
+.magenta-txt {
+    color: $magenta !important;
+}
+.violet-txt {
+    color: $violet !important;
+}
+.cyan-txt {
+    color: $cyan !important;
+}
+.blue-txt {
+    color: $blue !important;
+}

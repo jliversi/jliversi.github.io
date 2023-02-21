@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "sass --watch src/style.scss dist/style.css & webpack --watch --mode=development"
+    "build": "sass --watch src/styles/style.scss dist/style.css & webpack --watch --mode=development"
   },
   "author": "",
   "license": "ISC"

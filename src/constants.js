@@ -20,7 +20,7 @@ Outside of code, I enjoy reading sci-fi, riding my bike, and watching soccer gam
 
 export const skillsText = `\
 
-<span class="red-txt">Langauges:</span>
+<span class="magenta-txt">Langauges:</span>
     JavaScript
     Typescript
     Python
@@ -47,7 +47,7 @@ export const skillsText = `\
 
 export const experienceText = `\
 
-<span class="red-txt">Persado</span>
+<span class="magenta-txt">Persado</span>
     <span class="blue-txt">Software Engineer</span>
     <span class="green-txt">April 2021 - Sept 2022</span>
         - Worked as a member of an 8-person team to contribute to internal software used by Persado copywriters to generate language for clients.
@@ -55,7 +55,7 @@ export const experienceText = `\
         - Performed regular code reviews for team members before code was merged, testing code and providing feedback.
 
 
-<span class="red-txt">App Academy</span>
+<span class="magenta-txt">App Academy</span>
     <span class="blue-txt">Lead Instructor</span>
     <span class="green-txt">February 2020 - February 2021</span>
         - Managed teams of 4-6 in teaching full-stack development course to cohorts of 30-60 students, graduating over 500 students into web development jobs.
@@ -82,8 +82,7 @@ export const resumeText = `\
 `;
 
 export const contactText = `
-
-    <span class="red-txt">Github:</span>     <a href="https://github.com/jliversi" target="_blank">https://github.com/jliversi</a>
+    <span class="magenta-txt">Github:</span>     <a href="https://github.com/jliversi" target="_blank">https://github.com/jliversi</a>
 
     <span class="blue-txt">LinkedIn:</span>   <a href="https://www.linkedin.com/in/jliversi/" target="_blank">https://www.linkedin.com/in/jliversi/</a>
     
@@ -107,11 +106,6 @@ export const helpText = `\
     welcome     Print the site welcome message
     credits     Print a list of credits for creation of this site
 `;
-
-// TODO COMMANDS
-// theme
-// switch
-
 
 // Potential commands for future
 // ls          Prints contents of current director

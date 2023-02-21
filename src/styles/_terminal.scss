@@ -1,0 +1,66 @@
+@use 'colors';
+
+#terminal {
+    position: relative;
+    box-sizing: border-box;
+    transition: color 0.2s, background-color 0.2s;
+    height: 100%;
+    width: 100vw;
+    padding: 30px 50px;
+    outline: none;
+
+    #terminal-container {
+        height: calc(100vh - 60px);
+        overflow-y: scroll;
+        bottom: 30px;
+    }
+
+    .output-block {
+        width: calc(100vw - 200px);
+        margin-bottom: 21px;
+        white-space: break-spaces;
+        min-height: 1rem;
+        a {
+            font-weight: 800;
+        }
+    }
+
+    .input-block {
+        width: calc(100vw - 200px);
+        margin-bottom: 5px;
+        white-space: break-spaces;
+        min-height: 1rem;
+    }
+
+    #input-container {
+        width: calc(100vw - 200px);
+    }
+    
+    .prompt {
+        float: left;
+        margin-right: 5px;
+    }
+
+    .input {
+        outline: none;
+        vertical-align: text-top;
+        display: inline;
+        overflow-wrap: anywhere;
+        white-space: pre-wrap;
+    }
+
+    @keyframes blinker-d {
+        0% { background-color: colors.$d-text1; color: colors.$d-bg; }
+        50% { background-color: colors.$d-bg; color: colors.$d-text1; }
+        100% { background-color: colors.$d-text1; color: colors.$d-bg; }
+    }
+    @keyframes blinker-l {
+        0% { background-color: colors.$l-text1; color: colors.$l-bg; }
+        50% { background-color: colors.$l-bg; color: colors.$l-text1; }
+        100% { background-color: colors.$l-text1; color: colors.$l-bg; }
+    }
+    #caret {
+        white-space: pre-wrap;
+        vertical-align: text-top;
+    }
+}

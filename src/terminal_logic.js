@@ -1,10 +1,8 @@
 import { getCaret, getInput1, getInput2, getInputContainer, getTerminal, getOutputBlocks, getInputBlocks, getTerminalContainer } from "./selectors";
 import { aboutText, contactText, creditsText, experienceText, helpText, resumeText, skillsText, sudoText, welcomeText } from "./constants";
 import { escapeHtml } from "./ui";
-import { toggleMode, toggleTheme } from "./listener_callbacks";
+import { toggleModeToStandard, toggleTheme } from "./listener_callbacks";
 
-
-// TODO: Add memory of commands and up+down to navigate
 
 // Terminal input functions
 export function insertChar(key, settings) {
@@ -29,6 +27,24 @@ export function cursorRight(settings) {
     settings.cursorIdx = Math.min(settings.cursorIdx + 1, settings.inputText.length);
 }
 
+export function prevCommand(settings) {
+    if (settings.commandIdx === settings.commandHistory.length - 1) {
+        return;
+    }
+    settings.commandIdx += 1;
+    settings.inputText = settings.commandHistory[settings.commandIdx];
+    settings.cursorIdx = settings.inputText.length;
+}
+
+export function nextCommand(settings) {
+    if (settings.commandIdx === 0) {
+        return;
+    }
+    settings.commandIdx -= 1;
+    settings.inputText = settings.commandHistory[settings.commandIdx];
+    settings.cursorIdx = settings.inputText.length;
+}
+
 // Creating elements for terminal output
 function createOutputBlock() {
     const newDiv = document.createElement("div");
@@ -49,13 +65,16 @@ function createTextEleFromInput(settings) {
     const outputPrompt = document.createElement("span");
     outputPrompt.classList.add("prompt");
     outputPrompt.classList.add("emphasis");
-    outputPrompt.innerHTML = settings.dir + ':$';
+    // outputPrompt.innerHTML = settings.dir + ':$';
+    outputPrompt.innerHTML = "/Users/jliversi" + ':$';
     const outputInput = document.createElement("span");
     outputInput.innerHTML = escapeHtml(settings.inputText);
     newDiv.appendChild(outputPrompt);
     newDiv.appendChild(outputInput);
 
     terminal.insertBefore(newDiv, inputContainer);
+
+    terminal.scrollTop = terminal.scrollHeight;
 
     input1.innerHTML = "";
     input2.innerHTML = "";
@@ -71,6 +90,7 @@ function outputText(outputString) {
     const outputBlock = createOutputBlock();
     outputBlock.innerHTML = outputString;
     terminal.insertBefore(outputBlock, inputContainer);
+    terminal.scrollTop = terminal.scrollHeight;
 }
 
 // Commands
@@ -130,7 +150,15 @@ function theme_fn(settings) {
 }
 
 function standard_site_fn(settings) {
-    const toggle_fn = toggleMode(settings);
+    const toggle_fn = toggleModeToStandard(settings);
+
+    return function() {
+        toggle_fn();
+    }
+}
+
+function exit_fn(settings) {
+    const toggle_fn = toggleModeToStandard(settings);
     const inputContainer = getInputContainer();
     const terminal = getTerminalContainer();
 
@@ -141,6 +169,7 @@ function standard_site_fn(settings) {
             const outputBlock = createOutputBlock();
             outputBlock.innerHTML = welcomeText;
             terminal.insertBefore(outputBlock, inputContainer);
+            terminal.scrollTop = terminal.scrollHeight;
         }, 600);
     }
 }
@@ -164,9 +193,9 @@ function build_command_map(settings) {
         
         // // Functional in site
         theme: theme_fn(settings),
-        exit: standard_site_fn(settings),
         switch: standard_site_fn(settings),
-        quit: standard_site_fn(settings),
+        exit: exit_fn(settings),
+        quit: exit_fn(settings),
     
         echo: echo_fn,
         // projects: projects_fn, // TODO
@@ -194,6 +223,9 @@ function processCommand(commandMap, commandString) {
 // UI function runs on enter
 export function buildRunCommand(settings) {
     return function() {
+        settings.commandHistory[0] = settings.inputText;
+        settings.commandHistory.unshift("");
+        settings.commandIdx = 0;
         let commandString = settings.inputText.trim();
 
         const commandMap = build_command_map(settings);

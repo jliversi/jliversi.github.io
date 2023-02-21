@@ -1,0 +1,32 @@
+// Styles/animations for mode button in top right/left
+.mode-button {
+	font-family: "Font Awesome 6 Free";
+	z-index: 1000;
+	
+	height: 50px;
+	width: 50px;
+
+	position: fixed;
+	top: 30px;
+	
+	cursor: pointer;
+
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 20px;
+    text-align: center;
+
+	transition: font-size 0.2s, color 0.2s, border 0.2s;
+
+	&:hover {
+		font-size: 25px;
+	}
+}
+
+#to-standard-button {
+	right: calc(100vw + 50px);
+}
+
+#to-terminal-button {
+	left: calc(100vw + 50px);
+}
