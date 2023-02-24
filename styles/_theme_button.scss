@@ -1,0 +1,50 @@
+@use 'colors';
+
+
+#theme-checkbox {
+	height: 3em;
+    width: 3em;
+    position: absolute;
+    z-index: 101;
+    bottom: 29px;
+    left: 27px;
+    cursor: pointer;
+    opacity: 0;
+
+	&:checked {
+		~ main #theme-button > div {
+			right: 1em;
+		}
+	}
+	&:not(:checked) {
+		~ main #theme-button > div {
+			right: 0;
+		}
+	}
+}
+
+#theme-button {
+	overflow: hidden;
+	z-index: 100;
+	font-size: 2em;
+	
+	position: fixed;
+	bottom: 30px;
+	left: 30px;
+
+	font-family: "Font Awesome 6 Free";
+
+	> div {
+		width: 1em;
+		display: flex;
+		position: relative;
+		transition: right 0.6s ease;
+	}
+	
+	.fa-sun {
+		color: colors.$yellow;
+	}
+	.fa-moon {
+		color: colors.$violet;
+	}
+}

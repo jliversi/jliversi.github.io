@@ -1,0 +1,59 @@
+@use 'colors';
+
+#theme-checkbox {
+    // Theme differences
+	&:not(:checked) {
+    ~ #section-label {
+      background-color: colors.$d-bg2;
+      color: colors.$d-text1;
+    }
+
+    ~ #sidebar-button {
+      background-color: colors.$d-bg2;
+      color: colors.$d-text1;
+    }
+
+    ~ main {
+      background-color: colors.$d-bg;
+      color: colors.$d-text1;
+      .emphasis {
+        color: colors.$d-text2;
+      }
+      
+      aside {
+        background-color: colors.$d-bg2;
+      }
+      
+      .standard-section {
+        border-bottom: 1px solid colors.$d-bg2;
+      }
+    }
+	}
+
+	&:checked {
+    ~ #section-label {
+      background-color: colors.$l-bg2;
+      color: colors.$l-text1;
+    }
+
+    ~ #sidebar-button {
+      background-color: colors.$l-bg2;
+      color: colors.$l-text1;
+    }
+    ~ main {
+      background-color: colors.$l-bg;
+      color: colors.$l-text1;
+      .emphasis {
+        color: colors.$l-text2;
+      }
+  
+      aside {
+        background-color: colors.$l-bg2;
+      }
+
+      .standard-section {
+        border-bottom: 1px solid colors.$l-bg2;
+      }
+    }
+	}
+}

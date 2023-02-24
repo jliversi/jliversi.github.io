@@ -1,0 +1,63 @@
+@use 'colors';
+
+#experience {
+    box-sizing: border-box;
+    padding: 50px 50px 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    h2 {
+        color: colors.$magenta;
+    }
+
+    h3 {
+        color: colors.$blue;
+        display: inline;
+        margin-left: 2em;
+    }
+
+    h4 {
+        color: colors.$green;
+        vertical-align: bottom;
+        display: inline;
+    }
+
+    span {
+        color: colors.$violet;
+    }
+
+    ul {
+
+    }
+
+    li {
+        list-style: circle;
+    }
+
+    #resume-link {
+        align-items: center;
+        
+        a {
+            transition: color 0.6s ease, border 0.6s ease, background-color 0.6s ease;
+            width: 25vh;
+            padding: 5px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+
+            span {
+                color: inherit;
+            }
+            i {
+                
+            }
+        }
+    }
+}
