@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <script src="https://kit.fontawesome.com/88d08e29d0.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/88d08e29d0.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"> 
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
 
   <script src="scroll_logic.js" defer></script>
   <link rel="stylesheet" href="reset.css">
@@ -21,10 +21,10 @@
   <input id="theme-checkbox" type="checkbox" name="theme">
   <div id="section-label" class="about">
     <div>
-      <span>about</span>
-      <span>skills</span>
-      <span>experience</span>
-      <span>projects</span>
+      <span><i class="fa-solid fa-user"></i></span>
+      <span><i class="fa-solid fa-keyboard"></i></span>
+      <span><i class="fa-solid fa-file-lines"></i></span>
+      <span><i class="fa-solid fa-display"></i></span>
     </div>
   </div>
   <button id="sidebar-button">
@@ -48,16 +48,16 @@
       </div>
 
       <div id="contact-links">
-        <a id="gh-link" href="https://github.com/jliversi" target="_blank">
+        <a href="https://github.com/jliversi" target="_blank">
           <i class="devicon-github-original"></i>
           <span>Github</span>
         </a>
-        <a id="li-link" href="https://www.linkedin.com/in/jliversi/" target="_blank">
+        <a href="https://www.linkedin.com/in/jliversi/" target="_blank">
           <i class="devicon-linkedin-plain"></i>
           <span>LinkedIn</span>
         </a>
-        <a id="gm-link" href="mailto:jliversi.dev@gmail.com">
-          <i>@</i>
+        <a href="mailto:jliversi.dev@gmail.com">
+          <i class="fa-solid fa-envelope"></i>
           <span>jliversi.dev<br>@gmail.com</span>
         </a>
       </div>
@@ -73,7 +73,7 @@
           My name is <span class="emphasis magenta-txt">Joshua</span> <span class="emphasis blue-txt">Ashmall</span>-<span class="emphasis green-txt">Liversidge</span>
         </h1>
         <h2>
-          and I make web apps :)
+          and I make web apps?
         </h2>
         <p>
           I primarily use React and Rails, but others as well (scroll down for a full list). I love solving complex problems and implementing interesting UIs. I'm always excited to learn new languages, frameworks, and tools. 
@@ -247,16 +247,24 @@
 
       <footer>
         <div id="credits">
-          <span>Credits</span>
-          <span>Colors: Solarized by Ethan Schoonover</span>
-          <span>Icons: Font Awesome and Devicons</span>
-          <span>Font: Fira Code</span>
+          <span class="yellow-txt">Credits</span>
+          <span class="orange-txt">Colors: Solarized by Ethan Schoonover</span>
+          <span class="red-txt">Icons: Font Awesome and Devicons</span>
+          <span class="magenta-txt">Font: Quicksand by Andrew Paglinawan</span>
         </div>
         <div id="contact">
-          <span>Contact</span>
-          <i></i>
-          <i></i>
-          <i></i>
+          <span class="yellow-txt">Contact</span>
+          <div>
+            <a  class="orange-txt"href="https://github.com/jliversi" target="_blank">
+              <i class="devicon-github-original"></i>
+            </a>
+            <a  class="red-txt"href="https://www.linkedin.com/in/jliversi/" target="_blank">
+              <i class="devicon-linkedin-plain"></i>
+            </a>
+            <a  class="magenta-txt"href="mailto:jliversi.dev@gmail.com">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+          </div>
         </div>
       </footer>
     </div>

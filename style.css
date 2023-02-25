@@ -156,8 +156,8 @@
   position: fixed;
   z-index: 100;
   height: 2.5em;
-  padding-top: 0.4em;
-  padding-right: 1em;
+  padding: 0.4em 1em;
+  width: 3em;
   overflow: hidden;
   transition: color 0.6s ease, background-color 0.6s ease, width 0.6s ease, left 0.6s ease;
   border-bottom: 1px solid black;
@@ -174,30 +174,18 @@
 #section-label span {
   position: relative;
   font-size: 2em;
-  text-align: right;
+  text-align: center;
   width: 100%;
   display: inline-block;
-}
-#section-label.about {
-  width: 7em;
 }
 #section-label.about > div {
   transform: translate(0, 0);
 }
-#section-label.skills {
-  width: 8.2em;
-}
 #section-label.skills > div {
   transform: translate(0, -4em);
 }
-#section-label.experience {
-  width: 13em;
-}
 #section-label.experience > div {
   transform: translate(0, -8em);
-}
-#section-label.projects {
-  width: 10.5em;
 }
 #section-label.projects > div {
   transform: translate(0, -12em);
@@ -207,28 +195,14 @@
   right: 0;
   top: 0;
   position: absolute;
-  height: 2.9em;
+  height: 3.3em;
+  width: 5em;
+  transition: border 0.2s;
   border-radius: 0 0 0 1em;
   border-bottom: 1px solid;
   border-left: 1px solid;
   box-sizing: border-box;
   display: block !important;
-}
-
-#about .label-slot {
-  width: 8em;
-}
-
-#skills .label-slot {
-  width: 9.2em;
-}
-
-#experience .label-slot {
-  width: 14em;
-}
-
-#projects .label-slot {
-  width: 11.5em;
 }
 
 @media screen and (max-width: 1024px) {
@@ -246,9 +220,6 @@
     width: 100vw !important;
     z-index: 100;
   }
-  #section-label span {
-    text-align: center;
-  }
 }
 aside {
   height: 100vh;
@@ -257,6 +228,7 @@ aside {
   border-right: 1px solid black;
   position: fixed;
   left: 0;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -295,10 +267,6 @@ aside #contact-links a i {
   font-size: 2em;
   margin-right: 0.6em;
 }
-aside #contact-links #gm-link i {
-  margin-left: 0.2em;
-  margin-right: 0.8em;
-}
 
 main #about {
   min-height: 100vh;
@@ -318,7 +286,6 @@ main #about img {
 main #about h1 {
   text-align: center;
   white-space: pre-line;
-  padding: 0 5em;
   margin-bottom: 10px;
 }
 main #about p {
@@ -420,9 +387,9 @@ main #about p {
 #experience img {
   height: 3em;
   width: 3em;
+  align-self: center;
 }
 #experience span {
-  color: #6c71c4;
   line-height: 1.5em;
   vertical-align: text-bottom;
 }
@@ -531,14 +498,45 @@ main #about p {
   }
 }
 footer {
-  height: 10vh;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  height: 10em;
+}
+footer #credits {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+}
+footer #credits span:first-child {
+  text-decoration: underline;
+}
+footer #contact {
+  padding: 1em;
+}
+footer #contact > span:first-child {
+  text-decoration: underline;
+}
+footer #contact > div {
+  display: flex;
+}
+footer #contact > div a {
+  margin-right: 0.4em;
+  font-size: 5em;
 }
 
+@media screen and (max-width: 736px) {
+  footer {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
 body {
   font-size: 16pt;
   overflow: hidden;
   line-height: 1.75em;
-  font-family: "Fira Code", monospace;
+  font-family: "Quicksand", sans-serif;
 }
 body a {
   text-decoration: none;
@@ -576,6 +574,7 @@ main {
   box-sizing: border-box;
 }
 main #standard-content {
+  transition: border-color 0.2s;
   width: 100%;
   height: 100vh;
   min-height: 500px;

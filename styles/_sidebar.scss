@@ -5,6 +5,7 @@ aside {
     border-right: 1px solid black;
     position: fixed;
     left: 0;
+    z-index: 1;
 
     display: flex;
     flex-direction: column;
@@ -44,10 +45,6 @@ aside {
                 font-size: 2em;
                 margin-right: 0.6em;
             }
-        }
-        #gm-link i { // TODO: this should just be an envelope :eyeroll: 
-            margin-left: 0.2em;
-            margin-right: 0.8em;
         }
     }
 }

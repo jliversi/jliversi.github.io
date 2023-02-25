@@ -1,3 +1,38 @@
 footer {
-    height: 10vh;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    height: 10em;
+
+    #credits {
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        
+        span:first-child {
+            text-decoration: underline;
+        }
+    }
+
+    #contact {
+        padding: 1em;
+        > span:first-child {
+            text-decoration: underline;
+        }
+        > div {
+            display: flex;
+            a {
+                margin-right: 0.4em;
+                font-size: 5em;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 736px) {
+    footer {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
 }
