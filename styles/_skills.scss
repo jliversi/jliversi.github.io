@@ -8,7 +8,6 @@
 
   box-sizing: border-box;
   padding: 50px;
-  min-height: 100vh;
   
   display: grid;
   grid-template-rows: 3fr 2fr 2fr 2fr;
@@ -29,9 +28,17 @@
           
   img {
     height: 6em;
+    transition: transform 0.2s;
+    &:hover {
+      transform: scale(1.2);
+    }
   }
   i {
     font-size: 4em;
+    transition: transform 0.2s;
+    &:hover {
+      transform: scale(1.2);
+    }
   }
   .big-icon {
     i {
@@ -78,9 +85,6 @@
     #web-skills-label {
       grid-column: span 4;
       grid-row: span 1;
-    }
-    .big-icon {
-      grid-column: span 2;
     }
   }
 }

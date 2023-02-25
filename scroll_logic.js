@@ -10,17 +10,11 @@ const projects = document.getElementById("projects");
 
 // Store initial heights and re-store after any resize
 let aboutHeight = about.scrollHeight;
-if (window.innerWidth < 1024) {
-  aboutHeight -= 55;
-}
 let skillsHeight = skills.scrollHeight;
 let experienceHeight = experience.scrollHeight;
 let projectsHeight = projects.scrollHeight;
 window.addEventListener('resize', () => {
   aboutHeight = about.scrollHeight;
-  if (window.innerWidth < 1024) {
-    aboutHeight -= 55;
-  }
   skillsHeight = skills.scrollHeight;
   experienceHeight = experience.scrollHeight;
   projectsHeight = projects.scrollHeight;
@@ -36,17 +30,18 @@ function determineSectionIdx() {
   } else if (currentScroll < (aboutHeight + skillsHeight)) {
     return 1;
   } else if (currentScroll < (aboutHeight + skillsHeight + experienceHeight)) {
+    if (window.innerHeight + content.scrollTop === content.scrollHeight) {
+      return 3;
+    }
     return 2;
-  } else {
-    return 3;
   }
+  return 3;
 }
 
 let sectionIdx = 0;
   
 content.addEventListener('scroll', () => {
   const currentSectionIdx = determineSectionIdx();
-
   if (currentSectionIdx === sectionIdx) {
     return;
   } else {
@@ -79,3 +74,4 @@ experience_btn.addEventListener('click', () => {
 projects_btn.addEventListener('click', () => {
   content.scrollTop = aboutHeight + skillsHeight + experienceHeight;
 });
+

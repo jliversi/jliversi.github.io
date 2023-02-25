@@ -26,7 +26,19 @@
       
       .standard-section {
         border-bottom: 1px solid colors.$d-bg2;
+        .label-slot {
+          border-color: colors.$d-bg2;
+        }
       }
+
+      #resume-link {
+				a {
+					&:hover {
+						background-color: colors.$d-bg2;
+					}
+					border: 1px solid colors.$d-bg2;
+				}
+			}
     }
 	}
 
@@ -53,7 +65,19 @@
 
       .standard-section {
         border-bottom: 1px solid colors.$l-bg2;
+        .label-slot {
+          border-color: colors.$l-bg2;
+        }
       }
+
+      #resume-link {
+				a {
+					&:hover {
+						background-color: colors.$l-bg2;
+					}
+					border: 1px solid colors.$l-bg2;
+				}
+			}
     }
 	}
 }

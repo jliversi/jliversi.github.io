@@ -3,6 +3,7 @@
     top: 0;
 
     position: fixed;
+    z-index: 100;
     height: 2.5em;
     padding-top: 0.4em;
     padding-right: 1em;
@@ -12,6 +13,7 @@
     
     border-bottom: 1px solid black;
     border-left: 1px solid black;
+    border-radius: 0 0 0 1em;
 
     > div {
         height: 14em;
@@ -55,7 +57,40 @@
     }
 }
 
+.label-slot {
+    right: 0;
+    top: 0;
+    position: absolute;
+    height: 2.9em;
+    border-radius: 0 0 0 1em;
+    border-bottom: 1px solid;
+    border-left: 1px solid;
+    box-sizing: border-box;
+    display: block !important;
+}
+#about {
+    .label-slot {
+        width: 8em;
+    }
+}
+#skills {
+    .label-slot {
+        width: 9.2em;
+    }
+}
+#experience {
+    .label-slot {
+        width: 14em;
+    }
+}
+#projects {
+    .label-slot {
+        width: 11.5em;
+    }
+}
+
 @media screen and (max-width: 1024px) {
+    .label-slot { display: none !important;}
     #section-label {
         padding-top: 10px;
         margin: 0;

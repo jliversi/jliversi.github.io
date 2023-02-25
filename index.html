@@ -44,7 +44,7 @@
         <button id="about-btn" class="magenta-txt selected">about</button>
         <button id="skills-btn" class="blue-txt">skills</button>
         <button id="experience-btn" class="green-txt">experience</button>
-        <button id="projects-btn">projects</button>
+        <button id="projects-btn" class="violet-txt">projects</button>
       </div>
 
       <div id="contact-links">
@@ -66,25 +66,28 @@
     <div id="standard-content">
       <!-- About -->
       <div id="about" class="standard-section">
-          <img src="images/face.jpeg" alt="me">
-          <h1>
-            Hi!
-            My name is <span class="emphasis magenta-txt">Joshua</span> <span class="emphasis blue-txt">Ashmall</span>-<span class="emphasis green-txt">Liversidge</span>
-          </h1>
-          <h2>
-            and I make websites :)
-          </h2>
-          <p>
-            I primarily use React and Rails, but others as well (see skills for full list). I love solving complex problems and implementing interesting UIs. I'm always excited to learn new languages, frameworks, and tools. 
-          </p>
-          <p>
-            Outside of code, I enjoy reading sci-fi, riding my bike, and watching soccer games (YNWA🧣).
-          </p>
+        <div class="label-slot"></div>
+        <img src="images/face.jpeg" alt="me">
+        <h1>
+          Hi!
+          My name is <span class="emphasis magenta-txt">Joshua</span> <span class="emphasis blue-txt">Ashmall</span>-<span class="emphasis green-txt">Liversidge</span>
+        </h1>
+        <h2>
+          and I make web apps :)
+        </h2>
+        <p>
+          I primarily use React and Rails, but others as well (scroll down for a full list). I love solving complex problems and implementing interesting UIs. I'm always excited to learn new languages, frameworks, and tools. 
+        </p>
+        <p>
+          Outside of code, I enjoy reading sci-fi, riding my bike, and watching soccer games (YNWA🧣).
+        </p>
       </div>
 
       <!-- Skills -->
       <div id="skills" class="standard-section">
+        <div class="label-slot"></div>
         <span id="language-skills-label" class="skill-category-label magenta-txt">Languages</span>
+        <div class="mobile-filler"></div>
         <div class="big-icon">
           <i class="devicon-javascript-plain colored"></i>
           <span class="skill-name">Javascript</span>
@@ -93,6 +96,8 @@
           <i class="devicon-typescript-plain colored"></i>
           <span class="skill-name">Typescript</span>
         </div>
+        <div class="mobile-filler"></div>
+        <div class="mobile-filler"></div>
         <div class="big-icon">
           <i class="devicon-ruby-plain colored"></i>
           <span class="skill-name">Ruby</span>
@@ -101,6 +106,7 @@
           <img id="python" class="big-icon" src="images/python-original.svg" alt="Python">
           <span class="skill-name">Python</span>
         </div>
+        <div class="mobile-filler"></div>
         <div class="desktop-filler"></div>
         <span id="web-skills-label" class="skill-category-label blue-txt">Web Development</span>
         <div>
@@ -170,48 +176,88 @@
 
       <!-- Experience -->
       <div id="experience" class="standard-section">
-        <div>
-          <h2>Persado</h2>
-          <span class="title-container">
-            <h3>Software Engineer</h3>
-            <span>-</span>
-            <h4>April 2021 - Sept 2022</h4>
-          </span>
-          <ul>
-              <li>Worked as a member of an 8-person team to contribute to internal software used by Persado copywriters to generate language for clients.</li>
-              <li>Used Ruby, Javascript, and SQL to implement features, bug fixes, and complete technical chores to reduce existing technical debt.</li>
-              <li>Performed regular code reviews for team members before code was merged, testing code and providing feedback.</li>
-          </ul>
-        </div>
-        <div>
-          <h2>App Academy</h2>
-          <span class="title-container">
-            <h3>Lead Instructor</h3>
-            <span>-</span>
-            <h4>February 2020 - February 2021</h4>
-          </span>
-          <ul>
-            <li>Managed teams of 4-6 in teaching full-stack development course to cohorts of 30-60 students, graduating over 500 students into web development jobs.</li>
-            <li>Trained teams of software engineering instructors in technical skills and best andragogical practices.</li>
-            <li>Led bicoastal committee in maintaining and improving 24 tests used to measure knowledge of student engineers.</li>
-          </ul>
-          <span class="title-container">
-            <h3>Teaching Assistant</h3>
-            <span>-</span>
-            <h4>February 2019 - February 2020</h4>
-          </span>
-          <ul>
-            <li>Delivered weekly lectures on technical topics including Object Oriented Programming, Data Structures, and the Client-Server Model, as well as on specific technologies include Ruby on Rails, JavaScript, React, and Redux.</li>
-            <li>Supervised the construction of full-stack Rails + React web applications for over 80 students.</li>
-          </ul>
+        <div class="label-slot"></div>
+        <img src="images/persado_icon.png" alt="Pesado">
+        
+        <section>
+          <h1>Persado</h1>
+          <h2 class="emphasis">Software Engineer</h2>
+          <span>April 2021 - Sept 2022</span>
+        </section>
+
+        <img src="images/aa_icon.png" alt="App Academy">
+
+        <section>
+          <h1>App Academy</h1>
+          <h2 class="emphasis">Lead Instructor</h2>
+          <span>February 2020 - February 2021</span>
+          <br>
+          <h2 class="emphasis">Teaching Assistant</h2>
+          <span>February 2019 - February 2020</span>
+        </section>
+
+        <div id="resume-link" >
+          <a target="_blank" href="files/jal_resume_2023.pdf">
+            <span>Resume</span>  
+            <i class="fa-solid fa-file-pdf"></i>
+          </a>
         </div>
       </div>
 
       <!-- Projects -->
-      <div id="projects" class="standard-section">Projects</div>
+      <div id="projects" class="standard-section">
+        <div class="label-slot"></div>
+        <div class="project-container">
+          <a target="_blank" class="title-link" href="#">
+            <span>Title</span>
+          </a>
+          <a target="_blank" href="#">
+            <img src="images/temp_img.svg" alt="Title">
+            <p>Description Nulla facilisi. Donec porttitor vitae diam vitae vulputate. Donec sagittis, nibh vitae suscipit aliquet, risus elit mattis odio, sit amet pretium massa risus sit amet dui. Mauris in eros felis.</p>
+          </a>
+        </div>
+        <div class="project-container">
+          <a target="_blank" class="title-link" href="#">
+            <span>Title</span>
+          </a>
+          <a target="_blank" href="#">
+            <img src="images/temp_img.svg" alt="Title">
+            <p>Description Nulla facilisi. Donec porttitor vitae diam vitae vulputate. Donec sagittis, nibh vitae suscipit aliquet, risus elit mattis odio, sit amet pretium massa risus sit amet dui. Mauris in eros felis.</p>
+          </a>
+        </div>
+        <div class="project-container">
+          <a target="_blank" class="title-link" href="#">
+            <span>Title</span>
+          </a>
+          <a target="_blank" href="#">
+            <img src="images/temp_img.svg" alt="Title">
+            <p>Description Nulla facilisi. Donec porttitor vitae diam vitae vulputate. Donec sagittis, nibh vitae suscipit aliquet, risus elit mattis odio, sit amet pretium massa risus sit amet dui. Mauris in eros felis.</p>
+          </a>
+        </div>
+        <div class="project-container">
+          <a target="_blank" class="title-link" href="#">
+            <span>Title</span>
+          </a>
+          <a target="_blank" href="#">
+            <img src="images/temp_img.svg" alt="Title">
+            <p>Description Nulla facilisi. Donec porttitor vitae diam vitae vulputate. Donec sagittis, nibh vitae suscipit aliquet, risus elit mattis odio, sit amet pretium massa risus sit amet dui. Mauris in eros felis.</p>
+          </a>
+        </div>
+      </div>
 
       <footer>
-        <div id="contact"></div>
+        <div id="credits">
+          <span>Credits</span>
+          <span>Colors: Solarized by Ethan Schoonover</span>
+          <span>Icons: Font Awesome and Devicons</span>
+          <span>Font: Fira Code</span>
+        </div>
+        <div id="contact">
+          <span>Contact</span>
+          <i></i>
+          <i></i>
+          <i></i>
+        </div>
       </footer>
     </div>
   </main>

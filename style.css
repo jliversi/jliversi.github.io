@@ -51,6 +51,15 @@
 #theme-checkbox:not(:checked) ~ main .standard-section {
   border-bottom: 1px solid #073642;
 }
+#theme-checkbox:not(:checked) ~ main .standard-section .label-slot {
+  border-color: #073642;
+}
+#theme-checkbox:not(:checked) ~ main #resume-link a {
+  border: 1px solid #073642;
+}
+#theme-checkbox:not(:checked) ~ main #resume-link a:hover {
+  background-color: #073642;
+}
 #theme-checkbox:checked ~ #section-label {
   background-color: #eee8d5;
   color: #657b83;
@@ -71,6 +80,15 @@
 }
 #theme-checkbox:checked ~ main .standard-section {
   border-bottom: 1px solid #eee8d5;
+}
+#theme-checkbox:checked ~ main .standard-section .label-slot {
+  border-color: #eee8d5;
+}
+#theme-checkbox:checked ~ main #resume-link a {
+  border: 1px solid #eee8d5;
+}
+#theme-checkbox:checked ~ main #resume-link a:hover {
+  background-color: #eee8d5;
 }
 
 #sidebar-button {
@@ -136,6 +154,7 @@
   right: 0;
   top: 0;
   position: fixed;
+  z-index: 100;
   height: 2.5em;
   padding-top: 0.4em;
   padding-right: 1em;
@@ -143,6 +162,7 @@
   transition: color 0.6s ease, background-color 0.6s ease, width 0.6s ease, left 0.6s ease;
   border-bottom: 1px solid black;
   border-left: 1px solid black;
+  border-radius: 0 0 0 1em;
 }
 #section-label > div {
   height: 14em;
@@ -183,7 +203,38 @@
   transform: translate(0, -12em);
 }
 
+.label-slot {
+  right: 0;
+  top: 0;
+  position: absolute;
+  height: 2.9em;
+  border-radius: 0 0 0 1em;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  box-sizing: border-box;
+  display: block !important;
+}
+
+#about .label-slot {
+  width: 8em;
+}
+
+#skills .label-slot {
+  width: 9.2em;
+}
+
+#experience .label-slot {
+  width: 14em;
+}
+
+#projects .label-slot {
+  width: 11.5em;
+}
+
 @media screen and (max-width: 1024px) {
+  .label-slot {
+    display: none !important;
+  }
   #section-label {
     padding-top: 10px;
     margin: 0;
@@ -279,7 +330,6 @@ main #about p {
 #skills {
   box-sizing: border-box;
   padding: 50px;
-  min-height: 100vh;
   display: grid;
   grid-template-rows: 3fr 2fr 2fr 2fr;
   grid-template-columns: 5em repeat(5, 1fr);
@@ -303,9 +353,17 @@ main #about p {
 }
 #skills img {
   height: 6em;
+  transition: transform 0.2s;
+}
+#skills img:hover {
+  transform: scale(1.2);
 }
 #skills i {
   font-size: 4em;
+  transition: transform 0.2s;
+}
+#skills i:hover {
+  transform: scale(1.2);
 }
 #skills .big-icon i {
   font-size: 6em;
@@ -347,58 +405,133 @@ main #about p {
     grid-column: span 4;
     grid-row: span 1;
   }
-  #skills .big-icon {
-    grid-column: span 2;
-  }
 }
 #experience {
   box-sizing: border-box;
-  padding: 50px 50px 60px 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-#experience > div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding: 3em;
+  display: grid;
+  grid-template-columns: 3em 1fr;
+  grid-template-rows: 2fr 3fr 1fr;
+  gap: 2em;
 }
 #experience h2 {
-  color: #d33682;
-}
-#experience h3 {
-  color: #268bd2;
   display: inline;
-  margin-left: 2em;
 }
-#experience h4 {
-  color: #859900;
-  vertical-align: bottom;
-  display: inline;
+#experience img {
+  height: 3em;
+  width: 3em;
 }
 #experience span {
   color: #6c71c4;
-}
-#experience li {
-  list-style: circle;
+  line-height: 1.5em;
+  vertical-align: text-bottom;
 }
 #experience #resume-link {
-  align-items: center;
+  grid-column: span 2;
 }
 #experience #resume-link a {
   transition: color 0.6s ease, border 0.6s ease, background-color 0.6s ease;
-  width: 25vh;
-  padding: 5px 20px;
-  border-radius: 5px;
+  padding: 1em 2em;
+  border-radius: 25px;
   text-decoration: none;
   text-align: center;
+}
+#experience #resume-link a:hover span {
+  text-decoration: none !important;
 }
 #experience #resume-link a span {
   color: inherit;
 }
+
+@media screen and (max-width: 1024px) {
+  #experience {
+    padding-top: calc(51px + 2em);
+  }
+}
+@media screen and (max-width: 736px) {
+  #experience h2 {
+    display: block;
+  }
+}
 #projects {
-  background-color: green;
-  height: 100vh;
+  padding: 5em;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+}
+#projects .project-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+#projects .project-container span {
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+#projects .project-container a {
+  align-self: center;
+}
+#projects .project-container a.title-link {
+  height: 2em;
+}
+#projects .project-container a:not(.title-link) {
+  height: 15em;
+  width: 20em;
+  border-radius: 1em;
+  overflow: hidden;
+}
+#projects .project-container a:hover > img {
+  transform: scale(1.2);
+}
+#projects .project-container img {
+  border-radius: 1em;
+  height: 15em;
+  width: 20em;
+  object-fit: cover;
+  transition: transform 0.2s;
+}
+#projects .project-container p {
+  padding: 0.5em;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 0.9em;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  height: 15em;
+  width: 20em;
+  top: 2em;
+  transition: opacity 0.2s;
+  opacity: 0;
+}
+#projects .project-container p:hover {
+  opacity: 100;
+}
+
+@media screen and (max-width: 1024px) {
+  #projects {
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    gap: 5em;
+  }
+  #projects .project-container a:not(.title-link) {
+    height: 21em;
+    width: 28em;
+  }
+  #projects .project-container img {
+    height: 21em;
+    width: 28em;
+  }
+  #projects .project-container p {
+    height: 21em;
+    width: 28em;
+    padding: 4em;
+  }
+}
+footer {
+  height: 10vh;
 }
 
 body {
@@ -425,7 +558,7 @@ body h1 {
   line-height: 1.5em;
 }
 body h2 {
-  font-size: 1.75em;
+  font-size: 1.5em;
   line-height: 1.5em;
 }
 body aside {
@@ -455,6 +588,10 @@ main #standard-content::-webkit-scrollbar {
   display: none;
 }
 main #standard-content .standard-section {
+  position: relative;
+  scroll-snap-align: start;
+}
+main #standard-content footer {
   scroll-snap-align: start;
 }
 
@@ -525,7 +662,9 @@ main #standard-content .standard-section {
   }
   main #standard-content {
     width: 100%;
-    scroll-padding: 51px;
+  }
+  main #standard-content #about {
+    padding-top: 66px;
   }
 }
 @media screen and (max-width: 736px) {
@@ -536,7 +675,7 @@ main #standard-content .standard-section {
     font-size: 1.75em;
   }
   body h2 {
-    font-size: 1.5em;
+    font-size: 1.25em;
   }
   #sidebar-checkbox {
     display: initial;

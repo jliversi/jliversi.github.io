@@ -2,62 +2,56 @@
 
 #experience {
     box-sizing: border-box;
-    padding: 50px 50px 60px 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-
-    > div {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
+    padding: 3em;
+    display: grid;
+    grid-template-columns: 3em 1fr;
+    grid-template-rows: 2fr 3fr 1fr;
+    gap: 2em;
 
     h2 {
-        color: colors.$magenta;
+        display: inline;
     }
 
-    h3 {
-        color: colors.$blue;
-        display: inline;
-        margin-left: 2em;
-    }
-
-    h4 {
-        color: colors.$green;
-        vertical-align: bottom;
-        display: inline;
+    img {
+        height: 3em;
+        width: 3em;
     }
 
     span {
         color: colors.$violet;
+        line-height: 1.5em;
+        vertical-align: text-bottom;
     }
 
-    ul {
-
-    }
-
-    li {
-        list-style: circle;
-    }
 
     #resume-link {
-        align-items: center;
-        
+        grid-column: span 2;
         a {
             transition: color 0.6s ease, border 0.6s ease, background-color 0.6s ease;
-            width: 25vh;
-            padding: 5px 20px;
-            border-radius: 5px;
+            padding: 1em 2em;
+            border-radius: 25px;
             text-decoration: none;
+            &:hover {
+                span {
+                    text-decoration: none !important;
+                }
+            }
             text-align: center;
 
             span {
                 color: inherit;
             }
-            i {
-                
-            }
         }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #experience {
+        padding-top: calc(51px + 2em);
+    }
+}
+@media screen and (max-width: 736px) {
+    #experience h2 {
+        display: block;
     }
 }
