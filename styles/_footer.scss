@@ -2,7 +2,13 @@ footer {
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr 1fr;
-    height: 10em;
+    align-items: center;
+    justify-items: center;
+    height: 18em;
+
+    > div {
+        width: fit-content;
+    }
 
     #credits {
         padding: 1em;
@@ -24,6 +30,9 @@ footer {
             a {
                 margin-right: 0.4em;
                 font-size: 5em;
+                &:last-child {
+                    margin-right: 0;
+                }
             }
         }
     }

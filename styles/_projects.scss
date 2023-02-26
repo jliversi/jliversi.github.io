@@ -4,7 +4,7 @@
   padding: 5em;
   // min-height: 100vh;  // TODO minus whatever height i choose for the footer (this is necessary so you're able to get section label to show "projects")
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr;
   grid-template-columns: 1fr 1fr;
   gap: 2em;
 
@@ -62,7 +62,7 @@
 
 @media screen and (max-width: 1024px) {
   #projects {
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr;
     gap: 5em;
     .project-container {

@@ -423,7 +423,7 @@ main #about p {
 #projects {
   padding: 5em;
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr;
   grid-template-columns: 1fr 1fr;
   gap: 2em;
 }
@@ -479,7 +479,7 @@ main #about p {
 
 @media screen and (max-width: 1024px) {
   #projects {
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr;
     gap: 5em;
   }
@@ -501,7 +501,12 @@ footer {
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr 1fr;
-  height: 10em;
+  align-items: center;
+  justify-items: center;
+  height: 18em;
+}
+footer > div {
+  width: fit-content;
 }
 footer #credits {
   padding: 1em;
@@ -523,6 +528,9 @@ footer #contact > div {
 footer #contact > div a {
   margin-right: 0.4em;
   font-size: 5em;
+}
+footer #contact > div a:last-child {
+  margin-right: 0;
 }
 
 @media screen and (max-width: 736px) {
@@ -715,5 +723,3 @@ main #standard-content footer {
     justify-content: flex-start;
   }
 }
-
-/*# sourceMappingURL=style.css.map */
