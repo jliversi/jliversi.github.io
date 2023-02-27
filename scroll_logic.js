@@ -30,7 +30,7 @@ function determineSectionIdx() {
   } else if (currentScroll < (aboutHeight + skillsHeight)) {
     return 1;
   } else if (currentScroll < (aboutHeight + skillsHeight + experienceHeight)) {
-    if (window.innerHeight + content.scrollTop === content.scrollHeight) {
+    if (Math.floor(window.innerHeight + content.scrollTop) === content.scrollHeight) {
       return 3;
     }
     return 2;

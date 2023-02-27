@@ -198,6 +198,20 @@ main {
   }
 }
 
+@media screen and (max-width: 580px) {
+  body {
+    font-size: 8pt;
+    #sidebar-checkbox {
+      &:checked {
+        left: calc(17em - 50px);
+      }
+      &:not(:checked) {
+        left: 0px;
+      }
+    }
+  }
+}
+
 @media screen and (max-height: 700px) {
   aside {
     justify-content: flex-start;
