@@ -446,22 +446,27 @@ main #about p {
   object-fit: cover;
   transition: transform 0.2s;
 }
-#projects .project-container p {
-  padding: 4em 0.5em 0.5em 0.5em;
-  text-align: center;
+#projects .project-container div {
+  padding: 0.5em;
   box-sizing: border-box;
   border-radius: 0.9em;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.8);
-  color: white;
   height: 15em;
   width: 20em;
   top: 2em;
   transition: opacity 0.2s;
   opacity: 0;
+  display: table;
 }
-#projects .project-container p:hover {
+#projects .project-container div:hover {
   opacity: 100;
+}
+#projects .project-container p {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  color: white;
 }
 
 @media screen and (max-width: 1024px) {
@@ -478,10 +483,9 @@ main #about p {
     height: 21em;
     width: 28em;
   }
-  #projects .project-container p {
+  #projects .project-container div {
     height: 21em;
     width: 28em;
-    padding: 4em;
   }
 }
 footer {
@@ -721,3 +725,5 @@ main #standard-content footer {
     justify-content: flex-start;
   }
 }
+
+/*# sourceMappingURL=style.css.map */
